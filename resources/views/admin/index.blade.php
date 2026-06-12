@@ -6,7 +6,7 @@
             <div>
                 <p class="text-xs font-black uppercase tracking-[0.3em] text-blue-400">Panel administrativo</p>
                 <h1 class="mt-3 text-4xl font-black uppercase tracking-tight text-white">Dashboard</h1>
-                <p class="mt-4 max-w-2xl text-sm leading-relaxed text-gray-300">Gestiona todos los aspectos de tu restaurante desde aquí: productos, zonas de entrega y más.</p>
+                <p class="mt-4 max-w-2xl text-sm leading-relaxed text-gray-300">Gestiona todos los aspectos de tu restaurante desde aquí: productos, categorías, zonas de entrega, configuración y más.</p>
             </div>
             <a href="{{ route('menu') }}" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-black uppercase tracking-widest text-white transition hover:bg-blue-700">
                 ← Volver al menú
@@ -23,6 +23,17 @@
                         <p class="mt-2 text-sm text-gray-400">Edita nombres, precios y descripciones</p>
                     </div>
                     <span class="text-3xl">🍔</span>
+                </div>
+            </a>
+
+            <!-- Opción: Gestionar Categorías -->
+            <a href="{{ route('admin.categories.index') }}" class="group rounded-3xl border border-purple-600/30 bg-black/70 p-6 shadow-lg shadow-purple-900/10 transition hover:border-purple-500/50 hover:bg-black/50">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-black uppercase tracking-tight text-white group-hover:text-purple-300">Categorías</h3>
+                        <p class="mt-2 text-sm text-gray-400">Organiza productos por categorías</p>
+                    </div>
+                    <span class="text-3xl">📁</span>
                 </div>
             </a>
 
@@ -48,11 +59,22 @@
                 </div>
             </a>
 
-            <!-- Opción: Estadísticas (futura) -->
-            <a href="#" class="group rounded-3xl border border-purple-600/30 bg-black/70 p-6 shadow-lg shadow-purple-900/10 transition hover:border-purple-500/50 hover:bg-black/50">
+            <!-- Opción: Configuración -->
+            <a href="{{ route('admin.settings.index') }}" class="group rounded-3xl border border-orange-600/30 bg-black/70 p-6 shadow-lg shadow-orange-900/10 transition hover:border-orange-500/50 hover:bg-black/50">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h3 class="text-xl font-black uppercase tracking-tight text-white group-hover:text-purple-300">Estadísticas</h3>
+                        <h3 class="text-xl font-black uppercase tracking-tight text-white group-hover:text-orange-300">Configuración</h3>
+                        <p class="mt-2 text-sm text-gray-400">Tasa de cambio y datos de contacto</p>
+                    </div>
+                    <span class="text-3xl">⚙️</span>
+                </div>
+            </a>
+
+            <!-- Opción: Estadísticas (futura) -->
+            <a href="#" class="group rounded-3xl border border-pink-600/30 bg-black/70 p-6 shadow-lg shadow-pink-900/10 transition hover:border-pink-500/50 hover:bg-black/50">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-black uppercase tracking-tight text-white group-hover:text-pink-300">Estadísticas</h3>
                         <p class="mt-2 text-sm text-gray-400">Próximamente...</p>
                     </div>
                     <span class="text-3xl">📊</span>
@@ -124,7 +146,7 @@
                         </button>
                         <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
                             <span class="text-xs uppercase tracking-widest text-gray-400">ID {{ $product->id }}</span>
-                            <button type="submit" form="delete-product-{{ $product->id }}" class="rounded-full border border-red-500/30 bg-red-500/10 px-5 py-3 text-sm font-black uppercase tracking-widest text-red-300 transition hover:bg-red-500/20">
+                            <button type="submit" form="delete-product-{{ $product->id }}" class="rounded-full border border-red-500/30 bg-red-500/10 px-5 py-3 text-sm font-black uppercase tracking-widest text-red-400 transition hover:bg-red-500/20">
                                 🗑️ Eliminar
                             </button>
                         </div>
