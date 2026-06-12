@@ -14,6 +14,7 @@ class Product extends Model
         'description',
         'price_usd',
         'price_bs',
+        'category_id',
         'category',
         'tag',
         'badge',
@@ -34,6 +35,12 @@ class Product extends Model
     public function getPriceAttribute()
     {
         return $this->price_usd;
+    }
+
+    // Relación con Category
+    public function categoryModel()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function orders()
