@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DeliveryZoneController;
 use App\Http\Controllers\PaymentMethodController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'menu'])->name('menu');
@@ -20,4 +22,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     
     // Rutas de Métodos de Pago
     Route::resource('payment-methods', PaymentMethodController::class);
+    
+    // Rutas de Categorías
+    Route::resource('categories', CategoryController::class);
+    
+    // Rutas de Configuración
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+    Route::post('/settings', [SettingsController::class, 'update'])->name('settings.update');
 });
